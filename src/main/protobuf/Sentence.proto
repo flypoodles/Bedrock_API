@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "myapp.Sentence.grpc";
+option java_outer_classname = "SentenceProto";
+
+
+package Sentence;
+
+
+service SentenceService {
+
+  rpc SendPrompt (SentenceRequest) returns (SentenceReply) {}
+}
+
+message SentenceRequest {
+  string sentence = 1;
+}
+
+message SentenceReply {
+  string message=1;
+}
