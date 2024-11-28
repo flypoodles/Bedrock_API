@@ -12,7 +12,15 @@
 ## Prerequiste
 -Owns a AWS account
 
+## Description
+In this assignment, I have to use grpc to call a lambda function on AWS. The lambda function will generate a request to AWS Bedrock.
+To do that I set up a proxy GRPC server. Basically I have a GRPC frontend that accepts HTTP request.
+The GRPC frontend will sent the request to the backend GRPC server. 
+The GRPC server will invoke a call to the lambda function. After lambda function finished executing, 
+it will return the response generated from AWS Bedrock back to the GRPC frontend.
 
+## Video
+https://youtu.be/Sx-LdaNILI0
 
 ## Instruction
 1.  Log onto Aws and create a lambda function.
