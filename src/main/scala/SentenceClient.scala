@@ -32,6 +32,7 @@ object SentenceClient {
           sentence => {
             val responseText:String = sentence match {
               case Some(n) => {
+                // get the request string and sent it to the grpc backend.
                 val clientSettings = GrpcClientSettings.connectToServiceAt(serverConfig.getString("address"), serverConfig.getInt("port")).withTls(false)
                 val client:SentenceServiceClient = SentenceServiceClient(clientSettings)
                 val reply = client.sendPrompt(SentenceRequest(sentence=n))
