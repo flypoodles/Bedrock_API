@@ -29,6 +29,8 @@ class myLambdaHandler extends RequestHandler[java.util.Map[String, String], Stri
     val bedCLient : BedrockRuntimeClient = BedrockRuntimeClient.builder().credentialsProvider(DefaultCredentialsProvider.create()).region(Region.US_EAST_1).build()
 
     try {
+
+      // trying to invoke the bedrock
       val invokeRequest : InvokeModelRequest = InvokeModelRequest.builder().body(SdkBytes.fromUtf8String(nativeRequest)).modelId(Model_ID).build()
       val response =  bedCLient.invokeModel(invokeRequest)
       val responseBody = new JSONObject(response.body().asUtf8String());
